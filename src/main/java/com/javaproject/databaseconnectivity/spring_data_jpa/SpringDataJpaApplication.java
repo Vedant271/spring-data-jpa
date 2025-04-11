@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.sql.SQLOutput;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
@@ -37,7 +38,12 @@ public class SpringDataJpaApplication {
 //		studentRepository.save(s2);
 //		studentRepository.save(s3);
 
-		System.out.println(studentRepository.findAll());
+//		System.out.println(studentRepository.findAll());
+
+		Optional<Student> student_1 = studentRepository.findById(103);
+		System.out.println(student_1);
+		Optional<Student> student_2 = studentRepository.findById(104);
+		System.out.println(student_2.orElse(null));
 	}
 
 }
